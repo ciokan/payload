@@ -13,13 +13,15 @@ const BlockSelection: React.FC<Props> = (props) => {
   } = props;
 
   const {
-    labels, slug, imageURL, imageAltText,
+    labels, slug, imageURL, imageAltText, imageComponent,
   } = block;
 
   const handleBlockSelection = () => {
     close();
     addRow(addRowIndex, slug);
   };
+
+  const ImgC = imageComponent;
 
   return (
     <button
@@ -29,14 +31,16 @@ const BlockSelection: React.FC<Props> = (props) => {
       onClick={handleBlockSelection}
     >
       <div className={`${baseClass}__image`}>
-        {imageURL
-          ? (
-            <img
-              src={imageURL}
-              alt={imageAltText}
-            />
-          )
-          : <DefaultBlockImage />}
+        {ImgC ? <ImgC /> : (
+          imageURL
+            ? (
+              <img
+                src={imageURL}
+                alt={imageAltText}
+              />
+            )
+            : <DefaultBlockImage />
+        )}
       </div>
       <div className={`${baseClass}__label`}>{labels.singular}</div>
     </button>

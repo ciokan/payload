@@ -296,6 +296,7 @@ export const blocks = baseField.keys({
       slug: joi.string().required(),
       imageURL: joi.string(),
       imageAltText: joi.string(),
+      imageComponent: componentSchema,
       labels: joi.object({
         singular: joi.string(),
         plural: joi.string(),

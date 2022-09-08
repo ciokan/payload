@@ -318,6 +318,7 @@ export type Block = {
   fields: Field[];
   imageURL?: string;
   imageAltText?: string;
+  imageComponent?: React.ComponentType<any>;
 }
 
 export type BlockField = FieldBase & {
